@@ -3,10 +3,10 @@ import streamlit as st
 from groq import Groq
 
 # Set your API key
-GROQ_API_KEY = "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"
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 client = Groq(api_key=GROQ_API_KEY)
 
-st.title("Tejas's Flirty Replies Generator")
+st.title("Replies Generator")
 
 # User input text area
 user_input = st.text_area("Enter your message:")
@@ -33,3 +33,4 @@ if st.button("Generate Replies"):
             st.text_area(f"Reply {i + 1}", value=reply, height=50, disabled=True)
     else:
         st.warning("Please enter a message to generate replies.")
+
